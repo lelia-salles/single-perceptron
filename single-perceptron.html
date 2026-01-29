@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Perceptron</title>
+    
+    <script src="single-perceptron.js"></script>
+    
+    <script>
+        // O código JavaScript deve começar diretamente aqui
+        var trainingData = [
+            { inputs: [10, 100], output: 0 },
+            { inputs: [17, 90], output: 0 },
+            { inputs: [17, 40], output: 0 },
+            { inputs: [22, 25], output: 1 },
+            { inputs: [24, 30], output: 1 },
+            { inputs: [30, 10], output: 1 }
+        ];
+
+        // Certifique-se que o nome da função no JS é SinglePerceptron
+        window.onload = function() {
+            var neuron = new SinglePerceptron();
+            neuron.init(0.15, 1000);
+            neuron.train(trainingData);
+
+            // Testando um valor
+            var prediction = neuron.run([30, 32]);
+            console.log("Previsão para [30, 32]: " + prediction);
+            document.body.innerHTML = "<h1>Resultado do Perceptron: " + prediction.toFixed(4) + "</h1>";
+        };
+    </script>
+</head>
+<body>
+    <p>Verifique o console (F12) para ver os detalhes do treino.</p>
+</body>
+</html>
